@@ -1,2 +1,6 @@
-wh
-ujjjjj
+import datetime
+
+if __name__ == '__main__':
+    print 'csa'
+main()
+
