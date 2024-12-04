@@ -1,0 +1,12 @@
+<?php
+$key = hex2bin("404904684B7A0952BEC64EDCA82DD21E");
+$iv = hex2bin("70D6793CD4265D4ED4CAB497EB104FF1");
+
+$text = "1733324800 lvcangetinfo";
+
+$block_size = 16;
+$text_padded = $text . str_repeat("\0", $block_size - (strlen($text) % $block_size));
+$cipher_enc = openssl_encrypt($text_padded, 'AES-128-CBC', $key, OPENSSL_RAW_DATA, $iv);
+$base64_cmd = base64_encode($cipher_enc);
+echo $base64_cmd . "\n";
+?>
